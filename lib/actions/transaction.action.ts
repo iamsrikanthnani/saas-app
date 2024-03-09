@@ -24,7 +24,7 @@ export async function checkoutCredits(transaction: TYPE_CREATE_TRANSACTION) {
     line_items: [
       {
         price_data: {
-          currency: "usd",
+          currency: process.env.STRIPE_CURRENCY!,
           unit_amount: amount,
           product_data: {
             name: transaction.plan,
@@ -39,7 +39,7 @@ export async function checkoutCredits(transaction: TYPE_CREATE_TRANSACTION) {
       buyerId: transaction.buyerId,
     },
     mode: "payment",
-    success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/profile`,
+    success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/pricing`,
     cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/`,
   });
 
