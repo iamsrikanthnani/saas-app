@@ -22,8 +22,7 @@ const TransactionSchema = new Schema({
     type: Number,
   },
   buyer: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+    type: String,
   },
 });
 
