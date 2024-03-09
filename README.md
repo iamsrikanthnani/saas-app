@@ -3,8 +3,8 @@
 This is a robust boilerplate solution crafted with Next.js 14, Clerk, MongoDB, and Stripe, seamlessly integrated with webhooks for enhanced functionality. Ideal for building SaaS applications with ease. 🚀
 
 <p float="left">
-  <img src="https://github.com/iamsrikanthnani/saas-app/blob/master/img/login.png" width="400" />
-  <img src="https://github.com/iamsrikanthnani/saas-app/blob/master/img/pricing.png" width="400" /> 
+  <img src="https://github.com/iamsrikanthnani/saas-app/blob/master/img/login.png" alt="Login" height="400"/>
+  <img src="https://github.com/iamsrikanthnani/saas-app/blob/master/img/pricing.png" alt="Pricing" height="400"/>
 </p>
 
 ## 🛠️ Getting Started
