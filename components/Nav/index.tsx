@@ -39,8 +39,9 @@ export function Nav({
             )}
             {...props}
           >
-            {routes.map((route) => (
+            {routes.map((route, index) => (
               <Link
+                key={`route-${route.name}-${index}`}
                 href={route.path}
                 className={`text-sm font-medium ${
                   pathname === route.path ? "" : "text-muted-foreground"
