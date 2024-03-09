@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { checkoutCredits } from "@/lib/actions/transaction.action";
 import { Button } from "../ui/button";
+import { useUser } from "@clerk/nextjs";
 
 const Checkout = ({
   plan,
@@ -17,7 +18,7 @@ const Checkout = ({
   buyerId: string;
 }) => {
   const { toast } = useToast();
-
+  const { user } = useUser();
   useEffect(() => {
     loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
   }, []);
@@ -45,16 +46,14 @@ const Checkout = ({
   }, []);
 
   const onCheckout = async () => {
+    const email = user?.primaryEmailAddress?.emailAddress;
     const transaction = {
       plan,
       amount,
       credits,
       buyerId,
-      createdAt: new Date(),
-      stripeId: "",
     };
-
-    await checkoutCredits(transaction);
+    await checkoutCredits(transaction, email!);
   };
 
   return (

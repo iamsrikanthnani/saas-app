@@ -6,10 +6,8 @@ export type TYPE_CHECKOUT_TRANSACTION = {
 };
 
 export type TYPE_CREATE_TRANSACTION = {
-  stripeId: string;
   amount: number;
   credits: number;
   plan: string;
   buyerId: string;
-  createdAt: Date;
 };

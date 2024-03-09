@@ -15,7 +15,10 @@ import { updateCredits } from "./user.action";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 // Checkout credits using Stripe Checkout
-export async function checkoutCredits(transaction: TYPE_CREATE_TRANSACTION) {
+export async function checkoutCredits(
+  transaction: TYPE_CREATE_TRANSACTION,
+  email: string
+) {
   // Calculate the amount in cents
   const amount = Number(transaction.amount) * 100;
 
@@ -38,6 +41,7 @@ export async function checkoutCredits(transaction: TYPE_CREATE_TRANSACTION) {
       credits: transaction.credits,
       buyerId: transaction.buyerId,
     },
+    customer_email: email,
     mode: "payment",
     success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/pricing`,
     cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/`,
