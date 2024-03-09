@@ -3,7 +3,7 @@ import { TYPE_CREATE_USER, TYPE_USER_INFO } from "@/types/type.user";
 
 // Define the properties of a user document
 interface UserDocument extends TYPE_CREATE_USER, Document, TYPE_USER_INFO {
-  planId: string;
+  plan: string;
   creditBalance: number;
   isDeleted: boolean;
 }
@@ -41,7 +41,7 @@ const UserSchema = new Schema<UserDocument>({
   updatedAt: {
     type: Number,
   },
-  planId: {
+  plan: {
     type: String,
     default: "free",
   },
