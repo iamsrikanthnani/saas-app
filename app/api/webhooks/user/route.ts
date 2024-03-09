@@ -110,7 +110,6 @@ export async function POST(req: Request) {
       created_at,
       updated_at,
       last_sign_in_at,
-      private_metadata,
     } = evt.data;
 
     // Construct user object from webhook data

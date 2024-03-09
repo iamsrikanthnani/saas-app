@@ -5,6 +5,7 @@ import { TYPE_CREATE_USER, TYPE_USER_INFO } from "@/types/type.user";
 interface UserDocument extends TYPE_CREATE_USER, Document, TYPE_USER_INFO {
   planId: string;
   creditBalance: number;
+  isDeleted: boolean;
 }
 
 const NEXT_PUBLIC_FREE_CREDITS =
@@ -47,6 +48,10 @@ const UserSchema = new Schema<UserDocument>({
   creditBalance: {
     type: Number,
     default: NEXT_PUBLIC_FREE_CREDITS,
+  },
+  isDeleted: {
+    type: Boolean,
+    default: false,
   },
 });
 

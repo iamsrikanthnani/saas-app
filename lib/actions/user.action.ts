@@ -76,12 +76,15 @@ export async function deleteUser(userId: string) {
   try {
     // Connect to the database
     await connectToDatabase();
-    const data = { $set: { isDeleted: true } };
 
     //soft Delete the user document
-    const deletedUser = await User.findOneAndUpdate({ userId }, data, {
-      new: true, // Return the updated document
-    });
+    const deletedUser = await User.findOneAndUpdate(
+      { userId },
+      { $set: { isDeleted: true } },
+      {
+        new: true, // Return the updated document
+      }
+    );
     // Throw an error if the user document is not found
     if (!deletedUser) {
       throw new Error("User not found");
